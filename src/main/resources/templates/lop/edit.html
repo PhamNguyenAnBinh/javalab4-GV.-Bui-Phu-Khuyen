@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Chỉnh sửa Lớp</title>
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<header th:insert="layout :: header"></header>
+<div class="container mt-4">
+  <h2>Chỉnh sửa Lớp</h2>
+  <form th:action="@{/lop/edit}" th:object="${lop}" method="post">
+    <div class="mb-3">
+      <label for="tenLop" class="form-label">Tên Lớp</label>
+      <input type="text" id="tenLop" name="tenLop" th:field="*{tenLop}" class="form-control"/>
+      <div th:if="${#fields.hasErrors('tenLop')}" th:errors="*{tenLop}" class="text-danger"></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+  </form>
+</div>
+<footer th:insert="layout :: footer"></footer>
+</body>
+</html>
